@@ -10,11 +10,11 @@ class LoadingPage extends StatelessWidget {
     return Scaffold(
       // backgroundColor: Colors.white,
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
             gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Colors.deepPurple, Colors.white],
+          colors: [Colors.deepPurple, Colors.deepPurple.shade200],
         )),
         child: FutureBuilder(
           future: scren(context),
@@ -34,13 +34,21 @@ class LoadingPage extends StatelessWidget {
                           animate: true,
                           delay: const Duration(milliseconds: 1200),
                           duration: const Duration(milliseconds: 1000),
-                          child: Icon(Icons.monetization_on_outlined),
+                          child: Icon(
+                            Icons.monetization_on_outlined,
+                            color: Colors.white,
+                            size: 150,
+                          ),
                         ),
                         FadeInUp(
                             animate: true,
                             delay: const Duration(milliseconds: 1200),
                             duration: const Duration(milliseconds: 1000),
-                            child: Icon(Icons.arrow_right_alt_rounded)),
+                            child: Icon(
+                              Icons.arrow_right_alt_rounded,
+                              color: Colors.white,
+                              size: 150,
+                            )),
                       ],
                     ),
                   ),
@@ -49,7 +57,7 @@ class LoadingPage extends StatelessWidget {
                     duration: const Duration(milliseconds: 1000),
                     child: const Text(
                       'Prestamos',
-                      style: TextStyle(fontSize: 30, color: Colors.black),
+                      style: TextStyle(fontSize: 50, color: Colors.white),
                     ),
                   )
                 ],
