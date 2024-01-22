@@ -128,7 +128,7 @@ class _Formulario extends ConsumerWidget {
                               .read(localAutorizacionProvider.notifier)
                               .autenticaciondeusuario();
                           if (verificar) {
-                            context.replace('/menu');
+                            context.replace('/inicio');
                           } else {
                             print(1111111);
                           }

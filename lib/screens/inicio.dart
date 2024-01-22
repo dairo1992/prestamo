@@ -113,7 +113,7 @@ class MenuItem {
 }
 
 final menuitems = <MenuItem>[
-  MenuItem("Prestamos", Icons.monetization_on_rounded, "/clientes"),
+  MenuItem("Prestamos", Icons.monetization_on_rounded, "/prestamos"),
   MenuItem(
       "Prestamos a vencer", Icons.notifications_active, "/creditos_a_vencer"),
   MenuItem(
