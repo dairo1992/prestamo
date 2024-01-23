@@ -8,6 +8,7 @@ String bannerResponseToJson(LoginResponse data) => json.encode(data.toJson());
 class LoginResponse {
   final bool status;
   final String token;
+  final String tipo;
   final String msg;
   final String usuario;
   final String nombre;
@@ -15,6 +16,7 @@ class LoginResponse {
   LoginResponse({
     required this.status,
     required this.token,
+    required this.tipo,
     required this.msg,
     required this.usuario,
     required this.nombre,
@@ -23,6 +25,7 @@ class LoginResponse {
   LoginResponse copyWith({
     bool? status,
     String? token,
+    String? tipo,
     String? msg,
     String? usuario,
     String? nombre,
@@ -30,6 +33,7 @@ class LoginResponse {
       LoginResponse(
         status: status ?? this.status,
         token: token ?? this.token,
+        tipo: tipo ?? this.tipo,
         msg: msg ?? this.msg,
         usuario: usuario ?? this.usuario,
         nombre: nombre ?? this.nombre,
@@ -39,6 +43,7 @@ class LoginResponse {
         status: json["status"] ?? false,
         msg: json["msg"] ?? "",
         token: json["token"] ?? "",
+        tipo: json["tipo"] ?? "",
         usuario: json["usuario"] ?? "",
         nombre: json["nombre"] ?? "",
       );
@@ -47,6 +52,7 @@ class LoginResponse {
         "status": status,
         "msg": msg,
         "token": token,
+        "tipo": tipo,
         "usuario": usuario,
         "nombre": nombre,
       };
