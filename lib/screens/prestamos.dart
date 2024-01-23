@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:prestamo/providers/prestamos_providers.dart';
 import 'package:prestamo/widgets/customInput.dart';
@@ -79,7 +80,10 @@ class _PrestamosScreenState extends ConsumerState<PrestamosScreen> {
                             final cuotapagar = datosdellistado[index].monto /
                                 datosdellistado[index].cuotas;
                             return GestureDetector(
-                              onTap: () {},
+                              onTap: () => context.push("/detalle-prestamos",
+                                  extra: {
+                                    'idPrestamo': datosdellistado[index].id
+                                  }),
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Container(
