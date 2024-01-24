@@ -5,8 +5,31 @@ import 'package:prestamo/providers/cuotas_providers.dart';
 import 'package:prestamo/widgets/customInput.dart';
 
 class DetallePrestamoScreen extends ConsumerWidget {
+  final String nombre;
   final int idPrestamo;
-  const DetallePrestamoScreen({super.key, required this.idPrestamo});
+  final double cuotapagar;
+  final String? direccion;
+  final String? telefono;
+  final int monto;
+  final int tasaInteres;
+  final int cuotas;
+  final String? tipointeres;
+  final String? fechaprestamo;
+  final String? fechaultimacuota;
+  const DetallePrestamoScreen({
+    super.key,
+    required this.nombre,
+    required this.idPrestamo,
+    required this.cuotapagar,
+    this.direccion,
+    this.telefono,
+    required this.monto,
+    required this.tasaInteres,
+    required this.cuotas,
+    this.tipointeres,
+    this.fechaprestamo,
+    this.fechaultimacuota,
+  });
   @override
   Widget build(BuildContext context, ref) {
     NumberFormat currencyFormat = NumberFormat.decimalPattern('es_CO');
@@ -17,8 +40,8 @@ class DetallePrestamoScreen extends ConsumerWidget {
         foregroundColor: Colors.white,
         backgroundColor: Colors.deepPurple,
         centerTitle: true,
-        title: const Text(
-          "Detalle Prestamo",
+        title: Text(
+          nombre,
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         actions: const [
@@ -37,7 +60,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
           children: [
             SizedBox(height: 10),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: Container(
                 height: size.height * 0.30,
                 width: size.width,
@@ -45,7 +68,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.deepPurple,
                 ),
-                child: const Padding(
+                child: Padding(
                   padding:
                       EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
                   child: Column(
@@ -63,7 +86,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                                   fontSize: 18),
                             ),
                             Text(
-                              '\$250.000',
+                              '\$${currencyFormat.format(cuotapagar)}',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
@@ -84,7 +107,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                                       fontSize: 15),
                                 ),
                                 Text(
-                                  'Calle 45 # 12-12',
+                                  direccion!,
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.lightBlueAccent),
@@ -101,7 +124,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                                       fontSize: 15),
                                 ),
                                 Text(
-                                  '3135936565',
+                                  telefono!,
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.lightBlueAccent),
@@ -123,7 +146,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                                       fontSize: 15),
                                 ),
                                 Text(
-                                  '\$ 1.200.000',
+                                  '\$${currencyFormat.format(monto)}',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.lightBlueAccent),
@@ -140,7 +163,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                                       fontSize: 15),
                                 ),
                                 Text(
-                                  '20 %',
+                                  '$tasaInteres %',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.lightBlueAccent),
@@ -162,7 +185,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                                       fontSize: 15),
                                 ),
                                 Text(
-                                  'Corriente',
+                                  tipointeres!,
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.lightBlueAccent),
@@ -179,7 +202,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                                       fontSize: 15),
                                 ),
                                 Text(
-                                  '5',
+                                  cuotas.toString(),
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.lightBlueAccent),
@@ -201,7 +224,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                                       fontSize: 15),
                                 ),
                                 Text(
-                                  '01/01/2024',
+                                  fechaprestamo!,
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.lightBlueAccent),
@@ -218,7 +241,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                                       fontSize: 15),
                                 ),
                                 Text(
-                                  '01/06/2024',
+                                  fechaultimacuota!,
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.lightBlueAccent),

@@ -11,7 +11,17 @@ final router = GoRouter(initialLocation: "/", routes: [
       builder: (context, state) {
         Map<String, dynamic> args = state.extra as Map<String, dynamic>;
         return DetallePrestamoScreen(
+          nombre: args["nombre"],
           idPrestamo: args["idPrestamo"],
+          cuotapagar: args["cuotapagar"],
+          direccion: args["direccion"],
+          telefono: args["telefono"],
+          monto: args["monto"],
+          tasaInteres: args["tasaInteres"],
+          cuotas: args["cuotas"],
+          tipointeres: args["tipointeres"],
+          fechaprestamo: args["fechaprestamo"],
+          fechaultimacuota: args["fechaultimacuota"],
         );
       }),
 ]);

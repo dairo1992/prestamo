@@ -87,7 +87,21 @@ class _PrestamosScreenState extends ConsumerState<PrestamosScreen> {
                                   currentFocus.unfocus();
                                 }
                                 context.push("/detalle-prestamos", extra: {
-                                  'idPrestamo': datosdellistado[index].id
+                                  'nombre': datosdellistado[index].nombre,
+                                  'idPrestamo': datosdellistado[index].id,
+                                  'cuotapagar': cuotapagar,
+                                  'direccion': datosdellistado[index].direccion,
+                                  'telefono': datosdellistado[index].telefono,
+                                  'monto': datosdellistado[index].monto,
+                                  'tasaInteres':
+                                      datosdellistado[index].tasaInteres,
+                                  'cuotas': datosdellistado[index].cuotas,
+                                  'tipointeres':
+                                      datosdellistado[index].tipointeres,
+                                  'fechaprestamo':
+                                      datosdellistado[index].fechaprestamo,
+                                  'fechaultimacuota':
+                                      datosdellistado[index].fechaultimacuota,
                                 });
                               },
                               child: Padding(
