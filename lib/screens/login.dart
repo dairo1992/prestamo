@@ -111,7 +111,7 @@ class _Formulario extends ConsumerWidget {
                     style: const TextStyle(color: Colors.white),
                   )),
               onPressed: () {
-                context.replace('/menu');
+                context.replace('/inicio');
               },
             ),
             SizedBox(height: 20),

@@ -80,10 +80,16 @@ class _PrestamosScreenState extends ConsumerState<PrestamosScreen> {
                             final cuotapagar = datosdellistado[index].monto /
                                 datosdellistado[index].cuotas;
                             return GestureDetector(
-                              onTap: () => context.push("/detalle-prestamos",
-                                  extra: {
-                                    'idPrestamo': datosdellistado[index].id
-                                  }),
+                              onTap: () {
+                                FocusScopeNode currentFocus =
+                                    FocusScope.of(context);
+                                if (!currentFocus.hasPrimaryFocus) {
+                                  currentFocus.unfocus();
+                                }
+                                context.push("/detalle-prestamos", extra: {
+                                  'idPrestamo': datosdellistado[index].id
+                                });
+                              },
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Container(
