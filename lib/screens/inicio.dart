@@ -113,13 +113,13 @@ class MenuItem {
 }
 
 final menuitems = <MenuItem>[
-  MenuItem("Prestamos", Icons.monetization_on_rounded, "/clientes"),
+  MenuItem("Prestamos", Icons.monetization_on_rounded, "/prestamos"),
   MenuItem(
-      "Prestamos a vencer", Icons.notifications_active, "/creditos_a_vencer"),
-  MenuItem(
-      "Prestamos Vencidos", Icons.notification_important, "/creditos_vencidos"),
+      "Prestamos a vencer", Icons.notifications_active, "/prestamosavencer"),
+  MenuItem("Prestamos Vencidos", Icons.notification_important,
+      "/prestamosavencidos"),
   MenuItem("Prestamos Finalizados", Icons.assignment_outlined,
-      "/refinanciar_credito"),
+      "/prestamofinalizado"),
   MenuItem("Usuarios", Icons.group_add_rounded, "/reporte"),
 ];
 
