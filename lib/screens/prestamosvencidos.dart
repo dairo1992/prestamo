@@ -5,18 +5,19 @@ import 'package:intl/intl.dart';
 import 'package:prestamo/providers/prestamos_providers.dart';
 import 'package:prestamo/widgets/customInput.dart';
 
-class PrestamosScreen extends ConsumerStatefulWidget {
-  const PrestamosScreen({super.key});
+class PrestamosVencidosScreen extends ConsumerStatefulWidget {
+  const PrestamosVencidosScreen({super.key});
 
   @override
-  ConsumerState createState() => _PrestamosScreenState();
+  ConsumerState createState() => _PrestamosVencidosScreenState();
 }
 
-class _PrestamosScreenState extends ConsumerState<PrestamosScreen> {
+class _PrestamosVencidosScreenState
+    extends ConsumerState<PrestamosVencidosScreen> {
   final nombrebuscar = TextEditingController();
   NumberFormat currencyFormat = NumberFormat.decimalPattern('es_CO');
   Widget build(BuildContext context) {
-    final listadoprestamos = ref.watch(prestamosProvider);
+    final listadoprestamos = ref.watch(prestamosaVencidosProvider);
     final size = MediaQuery.of(context).size;
     //  NumberFormat currencyFormat = NumberFormat.simpleCurrency(
     //   locale: 'es_CO',
@@ -29,19 +30,9 @@ class _PrestamosScreenState extends ConsumerState<PrestamosScreen> {
         backgroundColor: Colors.deepPurple,
         centerTitle: true,
         title: const Text(
-          "Prestamos Activos",
+          "Prestamos a Vencidos",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Icon(
-              Icons.add_circle_outline_outlined,
-              color: Colors.white,
-              size: 30,
-            ),
-          )
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(

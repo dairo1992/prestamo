@@ -5,18 +5,19 @@ import 'package:intl/intl.dart';
 import 'package:prestamo/providers/prestamos_providers.dart';
 import 'package:prestamo/widgets/customInput.dart';
 
-class PrestamosScreen extends ConsumerStatefulWidget {
-  const PrestamosScreen({super.key});
+class PrestamosFinalizadoScreen extends ConsumerStatefulWidget {
+  const PrestamosFinalizadoScreen({super.key});
 
   @override
-  ConsumerState createState() => _PrestamosScreenState();
+  ConsumerState createState() => _PrestamosFinalizadoScreenState();
 }
 
-class _PrestamosScreenState extends ConsumerState<PrestamosScreen> {
+class _PrestamosFinalizadoScreenState
+    extends ConsumerState<PrestamosFinalizadoScreen> {
   final nombrebuscar = TextEditingController();
   NumberFormat currencyFormat = NumberFormat.decimalPattern('es_CO');
   Widget build(BuildContext context) {
-    final listadoprestamos = ref.watch(prestamosProvider);
+    final listadoprestamos = ref.watch(prestamosFinalizadoProvider);
     final size = MediaQuery.of(context).size;
     //  NumberFormat currencyFormat = NumberFormat.simpleCurrency(
     //   locale: 'es_CO',
@@ -29,19 +30,9 @@ class _PrestamosScreenState extends ConsumerState<PrestamosScreen> {
         backgroundColor: Colors.deepPurple,
         centerTitle: true,
         title: const Text(
-          "Prestamos Activos",
+          "Prestamos Finalizado",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Icon(
-              Icons.add_circle_outline_outlined,
-              color: Colors.white,
-              size: 30,
-            ),
-          )
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -102,7 +93,7 @@ class _PrestamosScreenState extends ConsumerState<PrestamosScreen> {
                                       datosdellistado[index].fechaprestamo,
                                   'fechaultimacuota':
                                       datosdellistado[index].fechaultimacuota,
-                                  'finalizado': 0,
+                                  'finalizado': 1,
                                 });
                               },
                               child: Padding(

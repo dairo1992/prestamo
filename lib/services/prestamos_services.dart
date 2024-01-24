@@ -29,4 +29,67 @@ class PrestamosServices {
       return [];
     }
   }
+
+  Future<List<PrestamosModel>> getPrestamosaVencer() async {
+    try {
+      // final usuario = await storage.read(key: "usuario");
+      // dio.dio.options.headers = {
+      //   'emisor': usuario,
+      // };
+      final resp = await dio.dio.get('/listarprestamosavencer');
+      Iterable datos = jsonDecode(resp.data);
+      final listaprestamos = List<PrestamosModel>.from(
+          datos.map((e) => PrestamosModel.fromMap(e)));
+      return listaprestamos;
+    } catch (e) {
+      String message = e.toString();
+      if (message ==
+          'DioException [bad response]: The request returned an invalid status code of 500.') {
+        print('111111111111111111111111');
+      }
+      return [];
+    }
+  }
+
+  Future<List<PrestamosModel>> getPrestamosaVencidos() async {
+    try {
+      // final usuario = await storage.read(key: "usuario");
+      // dio.dio.options.headers = {
+      //   'emisor': usuario,
+      // };
+      final resp = await dio.dio.get('/listarprestamosvencidos');
+      Iterable datos = jsonDecode(resp.data);
+      final listaprestamos = List<PrestamosModel>.from(
+          datos.map((e) => PrestamosModel.fromMap(e)));
+      return listaprestamos;
+    } catch (e) {
+      String message = e.toString();
+      if (message ==
+          'DioException [bad response]: The request returned an invalid status code of 500.') {
+        print('111111111111111111111111');
+      }
+      return [];
+    }
+  }
+
+  Future<List<PrestamosModel>> getPrestamosaFinalizado() async {
+    try {
+      // final usuario = await storage.read(key: "usuario");
+      // dio.dio.options.headers = {
+      //   'emisor': usuario,
+      // };
+      final resp = await dio.dio.get('/listarprestamofinalizado');
+      Iterable datos = jsonDecode(resp.data);
+      final listaprestamos = List<PrestamosModel>.from(
+          datos.map((e) => PrestamosModel.fromMap(e)));
+      return listaprestamos;
+    } catch (e) {
+      String message = e.toString();
+      if (message ==
+          'DioException [bad response]: The request returned an invalid status code of 500.') {
+        print('111111111111111111111111');
+      }
+      return [];
+    }
+  }
 }

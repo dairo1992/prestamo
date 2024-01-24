@@ -7,6 +7,15 @@ final router = GoRouter(initialLocation: "/", routes: [
   GoRoute(path: "/inicio", builder: (context, state) => InicioScreen()),
   GoRoute(path: "/prestamos", builder: (context, state) => PrestamosScreen()),
   GoRoute(
+      path: "/prestamosavencer",
+      builder: (context, state) => PrestamosaVencerScreen()),
+  GoRoute(
+      path: "/prestamosavencidos",
+      builder: (context, state) => PrestamosVencidosScreen()),
+  GoRoute(
+      path: "/prestamofinalizado",
+      builder: (context, state) => PrestamosFinalizadoScreen()),
+  GoRoute(
       path: "/detalle-prestamos",
       builder: (context, state) {
         Map<String, dynamic> args = state.extra as Map<String, dynamic>;
@@ -22,6 +31,7 @@ final router = GoRouter(initialLocation: "/", routes: [
           tipointeres: args["tipointeres"],
           fechaprestamo: args["fechaprestamo"],
           fechaultimacuota: args["fechaultimacuota"],
+          finalizado: args["finalizado"],
         );
       }),
 ]);

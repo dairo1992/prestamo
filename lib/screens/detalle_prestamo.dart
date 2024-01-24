@@ -16,6 +16,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
   final String? tipointeres;
   final String? fechaprestamo;
   final String? fechaultimacuota;
+  final int finalizado;
   const DetallePrestamoScreen({
     super.key,
     required this.nombre,
@@ -29,6 +30,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
     this.tipointeres,
     this.fechaprestamo,
     this.fechaultimacuota,
+    required this.finalizado,
   });
   @override
   Widget build(BuildContext context, ref) {
@@ -42,7 +44,8 @@ class DetallePrestamoScreen extends ConsumerWidget {
         centerTitle: true,
         title: Text(
           nombre,
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style:
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         actions: const [
           Padding(
@@ -58,9 +61,9 @@ class DetallePrestamoScreen extends ConsumerWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Container(
                 height: size.height * 0.30,
                 width: size.width,
@@ -69,8 +72,8 @@ class DetallePrestamoScreen extends ConsumerWidget {
                   color: Colors.deepPurple,
                 ),
                 child: Padding(
-                  padding:
-                      EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
+                  padding: const EdgeInsets.only(
+                      top: 10, bottom: 10, left: 20, right: 20),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -78,7 +81,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
+                            const Text(
                               'Monto a Cancelar',
                               style: TextStyle(
                                   color: Colors.white,
@@ -87,7 +90,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                             ),
                             Text(
                               '\$${currencyFormat.format(cuotapagar)}',
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18),
@@ -99,7 +102,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                           Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
+                                const Text(
                                   'Direccion',
                                   style: TextStyle(
                                       color: Colors.white,
@@ -108,7 +111,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                                 ),
                                 Text(
                                   direccion!,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.lightBlueAccent),
                                 ),
@@ -116,7 +119,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                           Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Text(
+                                const Text(
                                   'Telefono',
                                   style: TextStyle(
                                       color: Colors.white,
@@ -125,7 +128,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                                 ),
                                 Text(
                                   telefono!,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.lightBlueAccent),
                                 ),
@@ -138,7 +141,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                           Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
+                                const Text(
                                   'Monto',
                                   style: TextStyle(
                                       color: Colors.white,
@@ -147,7 +150,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                                 ),
                                 Text(
                                   '\$${currencyFormat.format(monto)}',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.lightBlueAccent),
                                 ),
@@ -155,7 +158,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                           Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Text(
+                                const Text(
                                   'Interes',
                                   style: TextStyle(
                                       color: Colors.white,
@@ -164,7 +167,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                                 ),
                                 Text(
                                   '$tasaInteres %',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.lightBlueAccent),
                                 ),
@@ -177,7 +180,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                           Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
+                                const Text(
                                   'Tipo Interes',
                                   style: TextStyle(
                                       color: Colors.white,
@@ -186,7 +189,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                                 ),
                                 Text(
                                   tipointeres!,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.lightBlueAccent),
                                 ),
@@ -194,7 +197,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                           Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Text(
+                                const Text(
                                   '# de Cuotas',
                                   style: TextStyle(
                                       color: Colors.white,
@@ -203,7 +206,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                                 ),
                                 Text(
                                   cuotas.toString(),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.lightBlueAccent),
                                 ),
@@ -216,7 +219,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                           Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
+                                const Text(
                                   'Fecha Prestamo',
                                   style: TextStyle(
                                       color: Colors.white,
@@ -225,7 +228,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                                 ),
                                 Text(
                                   fechaprestamo!,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.lightBlueAccent),
                                 ),
@@ -233,7 +236,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                           Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Text(
+                                const Text(
                                   'Fecha Ult. Cuota',
                                   style: TextStyle(
                                       color: Colors.white,
@@ -242,7 +245,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                                 ),
                                 Text(
                                   fechaultimacuota!,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.lightBlueAccent),
                                 ),
@@ -254,53 +257,93 @@ class DetallePrestamoScreen extends ConsumerWidget {
                 ),
               ),
             ),
-            SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton.icon(
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.deepPurple,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
+            const SizedBox(height: 10),
+            if (finalizado == 0)
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton.icon(
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.deepPurple,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                      ),
+                      onPressed: () {
+                        verdialogo(context);
+                      },
+                      icon: const Icon(
+                        Icons.monetization_on,
+                        color: Colors.white,
+                      ),
+                      label: const Text(
+                        'Pagar',
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
-                    onPressed: () {
-                      verdialogo(context);
-                    },
-                    icon: Icon(
-                      Icons.monetization_on,
-                      color: Colors.white,
-                    ),
-                    label: Text(
-                      'Pagar',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  SizedBox(width: 7),
-                  TextButton.icon(
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
+                    const SizedBox(width: 7),
+                    TextButton.icon(
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                      ),
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.add_circle_outline,
+                        color: Colors.white,
+                      ),
+                      label: const Text(
+                        'Refinanciar',
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.add_circle_outline,
-                      color: Colors.white,
+                    const SizedBox(width: 7),
+                    TextButton.icon(
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.red,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                      ),
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.check_box,
+                        color: Colors.white,
+                      ),
+                      label: const Text(
+                        'Finalizar',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
-                    label: Text(
-                      'Refinanciar',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
+            if (finalizado == 1)
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: TextButton.icon(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.deepPurple,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                  ),
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.check_box,
+                    color: Colors.white,
+                  ),
+                  label: const Text(
+                    'La Deuda a Sido Pagada',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
             const SizedBox(height: 5),
             Container(
               height: size.height * 0.40,
@@ -322,29 +365,29 @@ class DetallePrestamoScreen extends ConsumerWidget {
                               color: Colors.deepPurple,
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Icon(
+                                  const Icon(
                                     Icons.monetization_on,
                                     size: 58,
                                     color: Colors.white,
                                   ),
-                                  SizedBox(width: 20),
+                                  const SizedBox(width: 20),
                                   Column(
                                     children: [
-                                      Text(
+                                      const Text(
                                         'Pagado',
                                         style: TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white),
                                       ),
-                                      SizedBox(height: 10),
+                                      const SizedBox(height: 10),
                                       Text(
                                           '${data[index].fechapago} - \$${currencyFormat.format(data[index].cuotaactual)}',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontSize: 18,
                                               fontWeight: FontWeight.bold,
                                               color: Colors.white)),
@@ -357,7 +400,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                         );
                       }),
                   error: (error, stackTrace) => Center(child: Text("$error")),
-                  loading: () => Center(
+                  loading: () => const Center(
                     child: CircularProgressIndicator.adaptive(
                         backgroundColor: Colors.deepPurple),
                   ),
