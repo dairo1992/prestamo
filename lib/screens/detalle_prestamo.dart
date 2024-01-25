@@ -16,6 +16,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
   final String? tipointeres;
   final String? fechaprestamo;
   final String? fechaultimacuota;
+  final int totalpagado;
   final int finalizado;
   const DetallePrestamoScreen({
     super.key,
@@ -30,6 +31,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
     this.tipointeres,
     this.fechaprestamo,
     this.fechaultimacuota,
+    required this.totalpagado,
     required this.finalizado,
   });
   @override
@@ -65,7 +67,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                height: size.height * 0.30,
+                height: size.height * 0.35,
                 width: size.width,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -77,25 +79,51 @@ class DetallePrestamoScreen extends ConsumerWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text(
-                              'Monto a Cancelar',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18),
-                            ),
-                            Text(
-                              '\$${currencyFormat.format(cuotapagar)}',
-                              style: const TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18),
-                            ),
-                          ]),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Monto a Cancelar',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                                Text(
+                                  '\$${currencyFormat.format(cuotapagar)}',
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                              ]),
+                          Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                const Text(
+                                  'Monto Pagado',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                                Text(
+                                  '\$${currencyFormat.format(totalpagado)}',
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                              ]),
+                        ],
+                      ),
+                      Divider(
+                        color: Colors.lightBlueAccent,
+                        thickness: 2,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

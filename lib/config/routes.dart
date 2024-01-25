@@ -31,6 +31,7 @@ final router = GoRouter(initialLocation: "/", routes: [
           tipointeres: args["tipointeres"],
           fechaprestamo: args["fechaprestamo"],
           fechaultimacuota: args["fechaultimacuota"],
+          totalpagado: args["totalpagado"],
           finalizado: args["finalizado"],
         );
       }),

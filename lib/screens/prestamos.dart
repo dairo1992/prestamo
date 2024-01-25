@@ -102,6 +102,8 @@ class _PrestamosScreenState extends ConsumerState<PrestamosScreen> {
                                       datosdellistado[index].fechaprestamo,
                                   'fechaultimacuota':
                                       datosdellistado[index].fechaultimacuota,
+                                  'totalpagado':
+                                      datosdellistado[index].totalpagado,
                                   'finalizado': 0,
                                 });
                               },

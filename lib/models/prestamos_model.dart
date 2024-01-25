@@ -13,6 +13,7 @@ class PrestamosModel {
   final String tipointeres;
   final String fechaprestamo;
   final String fechaultimacuota;
+  final int totalpagado;
 
   PrestamosModel({
     required this.id,
@@ -27,6 +28,7 @@ class PrestamosModel {
     required this.tipointeres,
     required this.fechaprestamo,
     required this.fechaultimacuota,
+    required this.totalpagado,
   });
 
   factory PrestamosModel.fromJson(String str) =>
@@ -47,6 +49,7 @@ class PrestamosModel {
         tipointeres: json["TIPO_INTERES"],
         fechaprestamo: json["FECHA_PRESTAMO"],
         fechaultimacuota: json["FECHA_ULTIMA_CUOTA"],
+        totalpagado: json["TOTALPAGADO"],
       );
 
   Map<String, dynamic> toMap() => {
@@ -62,6 +65,7 @@ class PrestamosModel {
         "TIPO_INTERES": tipointeres,
         "FECHA_PRESTAMO": fechaprestamo,
         "FECHA_ULTIMA_CUOTA": fechaultimacuota,
+        "TOTALPAGADO": totalpagado,
       };
 
   PrestamosModel copy() => PrestamosModel(
@@ -77,5 +81,6 @@ class PrestamosModel {
         tipointeres: tipointeres,
         fechaprestamo: fechaprestamo,
         fechaultimacuota: fechaultimacuota,
+        totalpagado: totalpagado,
       );
 }
