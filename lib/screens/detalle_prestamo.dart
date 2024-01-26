@@ -7,7 +7,8 @@ import 'package:prestamo/widgets/customInput.dart';
 class DetallePrestamoScreen extends ConsumerWidget {
   final String nombre;
   final int idPrestamo;
-  final double cuotapagar;
+  final int idcuota;
+  final int cuotapagar;
   final String? direccion;
   final String? telefono;
   final int monto;
@@ -22,6 +23,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
     super.key,
     required this.nombre,
     required this.idPrestamo,
+    required this.idcuota,
     required this.cuotapagar,
     this.direccion,
     this.telefono,
@@ -390,7 +392,9 @@ class DetallePrestamoScreen extends ConsumerWidget {
                             width: size.width * 0.95,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
-                              color: Colors.deepPurple,
+                              color: data[index].estado == 'A'
+                                  ? Colors.red
+                                  : Colors.deepPurple,
                             ),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -405,9 +409,11 @@ class DetallePrestamoScreen extends ConsumerWidget {
                                   const SizedBox(width: 20),
                                   Column(
                                     children: [
-                                      const Text(
-                                        'Pagado',
-                                        style: TextStyle(
+                                      Text(
+                                        data[index].estado == 'A'
+                                            ? 'Pendiente Pagar'
+                                            : 'Pagada',
+                                        style: const TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white),

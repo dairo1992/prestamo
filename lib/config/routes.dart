@@ -22,6 +22,7 @@ final router = GoRouter(initialLocation: "/", routes: [
         return DetallePrestamoScreen(
           nombre: args["nombre"],
           idPrestamo: args["idPrestamo"],
+          idcuota: args["idcuota"],
           cuotapagar: args["cuotapagar"],
           direccion: args["direccion"],
           telefono: args["telefono"],

@@ -6,6 +6,7 @@ class CuotasModel {
   final int pagocapital;
   final int pagointeres;
   final String fechapago;
+  final String estado;
 
   CuotasModel({
     required this.idprestamo,
@@ -13,6 +14,7 @@ class CuotasModel {
     required this.pagocapital,
     required this.pagointeres,
     required this.fechapago,
+    required this.estado,
   });
 
   factory CuotasModel.fromJson(String str) =>
@@ -26,6 +28,7 @@ class CuotasModel {
         pagocapital: json["PAGO_CAPITAL"],
         pagointeres: json["PAGO_INTERES"],
         fechapago: json["FECHA_PAGO"],
+        estado: json["ESTADO"],
       );
 
   Map<String, dynamic> toMap() => {
@@ -34,6 +37,7 @@ class CuotasModel {
         "PAGO_CAPITAL": pagocapital,
         "PAGO_INTERES": pagointeres,
         "FECHA_PAGO": fechapago,
+        "ESTADO": estado,
       };
 
   CuotasModel copy() => CuotasModel(
@@ -42,5 +46,6 @@ class CuotasModel {
         pagocapital: pagocapital,
         pagointeres: pagointeres,
         fechapago: fechapago,
+        estado: estado,
       );
 }

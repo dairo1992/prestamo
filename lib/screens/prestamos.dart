@@ -77,8 +77,6 @@ class _PrestamosScreenState extends ConsumerState<PrestamosScreen> {
                       ? ListView.builder(
                           itemCount: datosdellistado.length,
                           itemBuilder: (BuildContext context, int index) {
-                            final cuotapagar = datosdellistado[index].monto /
-                                datosdellistado[index].cuotas;
                             return GestureDetector(
                               onTap: () {
                                 FocusScopeNode currentFocus =
@@ -89,7 +87,9 @@ class _PrestamosScreenState extends ConsumerState<PrestamosScreen> {
                                 context.push("/detalle-prestamos", extra: {
                                   'nombre': datosdellistado[index].nombre,
                                   'idPrestamo': datosdellistado[index].id,
-                                  'cuotapagar': cuotapagar,
+                                  'idcuota': datosdellistado[index].idcuota,
+                                  'cuotapagar':
+                                      datosdellistado[index].cuotapagar,
                                   'direccion': datosdellistado[index].direccion,
                                   'telefono': datosdellistado[index].telefono,
                                   'monto': datosdellistado[index].monto,
@@ -139,7 +139,7 @@ class _PrestamosScreenState extends ConsumerState<PrestamosScreen> {
                                             ),
                                             SizedBox(height: 10),
                                             Text(
-                                                '${datosdellistado[index].fechaProximoPago} - \$${currencyFormat.format(cuotapagar.toInt())}',
+                                                '${datosdellistado[index].fechaProximoPago} - \$${currencyFormat.format(datosdellistado[index].cuotapagar.toInt())}',
                                                 style: TextStyle(
                                                     fontSize: 18,
                                                     fontWeight: FontWeight.bold,
