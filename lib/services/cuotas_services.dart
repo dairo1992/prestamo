@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:prestamo/config/conexion.dart';
 import 'package:prestamo/models/cuotas_model.dart';
+import 'package:prestamo/models/pagar_cuota_model.dart';
 
 class CuotasServices {
   final DbConexion dio;
@@ -29,6 +30,26 @@ class CuotasServices {
         print('111111111111111111111111');
       }
       return [];
+    }
+  }
+
+  Future<PagarCuotaResponse?> postPagarCuota(int idPrestamo, int idcuota,
+      String cuotacancelar, int tasaInteres, String? tipointeres) async {
+    try {
+      final resp = await dio.dio.post('/pagarcuota', data: {
+        "idPrestamo": idPrestamo,
+        "idcuota": idcuota,
+        "cuotacancelar": cuotacancelar,
+        "tasaInteres": tasaInteres,
+        "tipointeres": tipointeres
+      });
+      final response = PagarCuotaResponse.fromJson(jsonDecode(resp.data));
+      if (response.codigo == "0") {
+        return (response);
+      }
+      return (response);
+    } catch (e) {
+      return (null);
     }
   }
 }

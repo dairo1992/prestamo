@@ -303,7 +303,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
                         ),
                       ),
                       onPressed: () {
-                        verdialogo(context);
+                        verdialogo(context, ref);
                       },
                       icon: const Icon(
                         Icons.monetization_on,
@@ -447,7 +447,7 @@ class DetallePrestamoScreen extends ConsumerWidget {
     );
   }
 
-  void verdialogo(BuildContext context) async {
+  void verdialogo(BuildContext context, WidgetRef ref) async {
     final cuotacancelar = TextEditingController();
     showDialog(
       context: context,
@@ -489,8 +489,15 @@ class DetallePrestamoScreen extends ConsumerWidget {
                             disabledColor: Colors.grey,
                             elevation: 1,
                             color: Colors.deepPurple,
-                            onPressed: () {
-                              Navigator.pop(context);
+                            onPressed: () async {
+                              final nuevaservice = await ref
+                                  .read(pagarcuotasProvider.notifier)
+                                  .sedcuota(
+                                      idPrestamo,
+                                      idcuota,
+                                      cuotacancelar.text,
+                                      tasaInteres,
+                                      tipointeres);
                             },
                             child: const Text(
                               'Guardar',
