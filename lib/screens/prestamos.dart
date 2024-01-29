@@ -18,11 +18,6 @@ class _PrestamosScreenState extends ConsumerState<PrestamosScreen> {
   Widget build(BuildContext context) {
     final listadoprestamos = ref.watch(prestamosProvider);
     final size = MediaQuery.of(context).size;
-    //  NumberFormat currencyFormat = NumberFormat.simpleCurrency(
-    //   locale: 'es_CO',
-    //   name: '\$', // Símbolo de moneda al principio
-    //   decimalDigits: 0, // Sin decimales
-    // );
     return Scaffold(
       appBar: AppBar(
         foregroundColor: Colors.white,
@@ -32,14 +27,16 @@ class _PrestamosScreenState extends ConsumerState<PrestamosScreen> {
           "Prestamos Activos",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Icon(
-              Icons.add_circle_outline_outlined,
-              color: Colors.white,
-              size: 30,
-            ),
+            padding: const EdgeInsets.all(8.0),
+            child: IconButton(
+                onPressed: () => context.push('/simulador'),
+                icon: const Icon(
+                  Icons.add_circle_outline_outlined,
+                  color: Colors.white,
+                  size: 30,
+                )),
           )
         ],
       ),
@@ -115,30 +112,30 @@ class _PrestamosScreenState extends ConsumerState<PrestamosScreen> {
                                     color: Colors.deepPurple,
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.all(8.0),
                                     child: Row(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        Icon(
+                                        const Icon(
                                           Icons.monetization_on,
                                           size: 58,
                                           color: Colors.white,
                                         ),
-                                        SizedBox(width: 20),
+                                        const SizedBox(width: 20),
                                         Column(
                                           children: [
                                             Text(
                                               datosdellistado[index].nombre,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   fontSize: 18,
                                                   fontWeight: FontWeight.bold,
                                                   color: Colors.white),
                                             ),
-                                            SizedBox(height: 10),
+                                            const SizedBox(height: 10),
                                             Text(
                                                 '${datosdellistado[index].fechaProximoPago} - \$${currencyFormat.format(cuotapagar.toInt())}',
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontSize: 18,
                                                     fontWeight: FontWeight.bold,
                                                     color: Colors.white)),
@@ -151,12 +148,12 @@ class _PrestamosScreenState extends ConsumerState<PrestamosScreen> {
                               ),
                             );
                           })
-                      : Center(
+                      : const Center(
                           child: Text('No se Hayaron Resultados'),
                         );
                 },
                 error: (error, stackTrace) => Center(child: Text("$error")),
-                loading: () => Center(
+                loading: () => const Center(
                   child: CircularProgressIndicator.adaptive(
                       backgroundColor: Colors.deepPurple),
                 ),

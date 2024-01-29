@@ -111,7 +111,7 @@ class _InputTextState extends State<InputText> {
                           if (values != null && values.isNotEmpty) {
                             setState(() {
                               widget.controller.text =
-                                  DateFormat('yyyy-MM-dd', "es_ES")
+                                  DateFormat('yyyy-MM-dd')
                                       .format(values[0]!);
                             });
                           }

@@ -4,5 +4,5 @@ class DbConexion {
   final Dio dio;
   DbConexion()
       : dio = Dio(
-            BaseOptions(baseUrl: "http://192.168.52.54/apiprestamos/public/"));
+            BaseOptions(baseUrl: "http://141.136.39.100/apiprestamos/public/"));
 }

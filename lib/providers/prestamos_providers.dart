@@ -24,3 +24,9 @@ final prestamosFinalizadoProvider =
   final listaprestamos = await peticones.getPrestamosaFinalizado();
   return listaprestamos;
 });
+final simuladorProvider =
+    FutureProvider.family<String, Map<String, dynamic>>((ref, json) async {
+    final resp = await peticones.simularCredito(json['valor'], json['interes'],
+      json['cuotas'], json['tipoPago'], json['tipoInteres'], json['fecha']);
+  return resp;
+});

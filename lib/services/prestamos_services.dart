@@ -92,4 +92,17 @@ class PrestamosServices {
       return [];
     }
   }
+
+  Future<String> simularCredito(int valor, int interes, int cuotas,
+      String tipoPago, String tipoInteres, String fecha) async {
+    try {
+      print(valor);
+      final resp = await dio.dio.post('/simulador', data: {'valor': 1});
+      print(resp);
+      return "";
+    } catch (e) {
+      print(e);
+      return e.toString();
+    }
+  }
 }

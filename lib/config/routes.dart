@@ -2,19 +2,20 @@ import 'package:go_router/go_router.dart';
 import 'package:prestamo/screens/screens.dart';
 
 final router = GoRouter(initialLocation: "/", routes: [
-  GoRoute(path: "/", builder: (context, state) => LoadingPage()),
+  GoRoute(path: "/", builder: (context, state) => const InicioScreen()),
   GoRoute(path: "/login", builder: (context, state) => LoginScreen()),
-  GoRoute(path: "/inicio", builder: (context, state) => InicioScreen()),
-  GoRoute(path: "/prestamos", builder: (context, state) => PrestamosScreen()),
+  GoRoute(path: "/inicio", builder: (context, state) => const InicioScreen()),
+  GoRoute(
+      path: "/prestamos", builder: (context, state) => const PrestamosScreen()),
   GoRoute(
       path: "/prestamosavencer",
-      builder: (context, state) => PrestamosaVencerScreen()),
+      builder: (context, state) => const PrestamosaVencerScreen()),
   GoRoute(
       path: "/prestamosavencidos",
-      builder: (context, state) => PrestamosVencidosScreen()),
+      builder: (context, state) => const PrestamosVencidosScreen()),
   GoRoute(
       path: "/prestamofinalizado",
-      builder: (context, state) => PrestamosFinalizadoScreen()),
+      builder: (context, state) => const PrestamosFinalizadoScreen()),
   GoRoute(
       path: "/detalle-prestamos",
       builder: (context, state) {
@@ -34,4 +35,7 @@ final router = GoRouter(initialLocation: "/", routes: [
           finalizado: args["finalizado"],
         );
       }),
+        GoRoute(
+      path: "/simulador",
+      builder: (context, state) => const Simulador()),
 ]);
