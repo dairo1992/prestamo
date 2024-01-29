@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:prestamo/providers/cuotas_providers.dart';
@@ -490,14 +491,26 @@ class DetallePrestamoScreen extends ConsumerWidget {
                             elevation: 1,
                             color: Colors.deepPurple,
                             onPressed: () async {
+                              EasyLoading.show(
+                                  status: 'Registrando Pago...',
+                                  maskType: EasyLoadingMaskType.clear);
                               final nuevaservice = await ref
                                   .read(pagarcuotasProvider.notifier)
                                   .sedcuota(
                                       idPrestamo,
-                                      idcuota,
+                                      idcuota, //traerme el id de la cuota al momento de cancelar uno
                                       cuotacancelar.text,
                                       tasaInteres,
                                       tipointeres);
+                              if (nuevaservice!.codigo == '0') {
+                                EasyLoading.showSuccess('Pago Registrado');
+                              } else {
+                                EasyLoading.showError(
+                                    'Error al registrar el pago');
+                              }
+                              Navigator.pop(context);
+                              EasyLoading.dismiss();
+                              ref.refresh(cuotasProvider(idPrestamo));
                             },
                             child: const Text(
                               'Guardar',

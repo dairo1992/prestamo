@@ -49,7 +49,9 @@ class CuotasServices {
       }
       return (response);
     } catch (e) {
-      return (null);
+      return PagarCuotaResponse(
+          codigo: '2', mensaje: 'No se logro registrar el pago', idcuota: '0');
+      // return (null);
     }
   }
 }

@@ -17,6 +17,7 @@ class _PrestamosVencidosScreenState
   final nombrebuscar = TextEditingController();
   NumberFormat currencyFormat = NumberFormat.decimalPattern('es_CO');
   Widget build(BuildContext context) {
+    ref.refresh(prestamosaVencidosProvider);
     final listadoprestamos = ref.watch(prestamosaVencidosProvider);
     final size = MediaQuery.of(context).size;
     //  NumberFormat currencyFormat = NumberFormat.simpleCurrency(

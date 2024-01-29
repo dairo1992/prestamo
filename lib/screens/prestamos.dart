@@ -16,6 +16,7 @@ class _PrestamosScreenState extends ConsumerState<PrestamosScreen> {
   final nombrebuscar = TextEditingController();
   NumberFormat currencyFormat = NumberFormat.decimalPattern('es_CO');
   Widget build(BuildContext context) {
+    ref.refresh(prestamosProvider);
     final listadoprestamos = ref.watch(prestamosProvider);
     final size = MediaQuery.of(context).size;
     //  NumberFormat currencyFormat = NumberFormat.simpleCurrency(

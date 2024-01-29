@@ -18,15 +18,9 @@ class NuevaAlarmaProvider extends StateNotifier<List<PagarCuotaResponse>> {
 
   Future<PagarCuotaResponse?> sedcuota(int idPrestamo, int idcuota,
       String cuotacancelar, int tasaInteres, String? tipointeres) async {
-    final alarmamasiva = await peticion.postPagarCuota(
+    final data = await peticion.postPagarCuota(
         idPrestamo, idcuota, cuotacancelar, tasaInteres, tipointeres);
-    if (alarmamasiva!.codigo == "0") {
-      state = [...state, alarmamasiva];
-      isLoading = false;
-      return (alarmamasiva);
-    }
-    isLoading = false;
-    return (alarmamasiva);
+    return data;
   }
 }
 

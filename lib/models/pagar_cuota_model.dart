@@ -9,10 +9,12 @@ String bannerResponseToJson(PagarCuotaResponse data) =>
 class PagarCuotaResponse {
   final String codigo;
   final String mensaje;
+  final String idcuota;
 
   PagarCuotaResponse({
     required this.codigo,
     required this.mensaje,
+    required this.idcuota,
   });
 
   PagarCuotaResponse copyWith({
@@ -22,16 +24,19 @@ class PagarCuotaResponse {
       PagarCuotaResponse(
         codigo: codigo ?? this.codigo,
         mensaje: mensaje ?? this.mensaje,
+        idcuota: idcuota ?? this.idcuota,
       );
 
   factory PagarCuotaResponse.fromJson(Map<String, dynamic> json) =>
       PagarCuotaResponse(
         codigo: json["codigo"] ?? "",
         mensaje: json["mensaje"] ?? "",
+        idcuota: json["idcuota"] ?? "",
       );
 
   Map<String, dynamic> toJson() => {
         "codigo": codigo,
         "mensaje": mensaje,
+        "idcuota": idcuota,
       };
 }
